@@ -49,6 +49,7 @@ module Table =
         | OnCell of ('T -> obj)
         | OnHeaderCell of (ColumnProps<'T> -> obj)
 
+    type TableComponents = obj
 
 // export interface TableComponents {
 //   table?: any;
@@ -120,113 +121,113 @@ module Table =
         | Size of TableSize
         | DataSource of 'T[]
         | Components of TableComponents
-  columns?: ColumnProps<T>[];
-  rowKey?: string | ((record: T, index: number) => string);
-  rowClassName?: (record: T, index: number) => string;
-  expandedRowRender?: any;
-  defaultExpandAllRows?: boolean;
-  defaultExpandedRowKeys?: string[] | number[];
-  expandedRowKeys?: string[] | number[];
-  expandIconAsCell?: boolean;
-  expandIconColumnIndex?: number;
-  expandRowByClick?: boolean;
-  onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
-  onExpand?: (expanded: boolean, record: T) => void;
-  onChange?: (pagination: TablePaginationConfig | boolean, filters: string[], sorter: Object) => any;
-  loading?: boolean | SpinProps;
-  locale?: Object;
-  indentSize?: number;
-  onRowClick?: (record: T, index: number, event: Event) => any;
-  onRow?: (record: T, index: number) => any;
-  onHeaderRow?: (columns: ColumnProps<T>[], index: number) => any;
-  useFixedHeader?: boolean;
-  bordered?: boolean;
-  showHeader?: boolean;
-  footer?: (currentPageData: Object[]) => React.ReactNode;
-  title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string, y?: boolean | number | string };
-  childrenColumnName?: string;
-  bodyStyle?: React.CSSProperties;
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-}
+//  columns?: ColumnProps<T>[];
+//  rowKey?: string | ((record: T, index: number) => string);
+//  rowClassName?: (record: T, index: number) => string;
+//  expandedRowRender?: any;
+//  defaultExpandAllRows?: boolean;
+//  defaultExpandedRowKeys?: string[] | number[];
+//  expandedRowKeys?: string[] | number[];
+//  expandIconAsCell?: boolean;
+//  expandIconColumnIndex?: number;
+//  expandRowByClick?: boolean;
+//  onExpandedRowsChange?: (expandedRowKeys: string[] | number[]) => void;
+//  onExpand?: (expanded: boolean, record: T) => void;
+//  onChange?: (pagination: TablePaginationConfig | boolean, filters: string[], sorter: Object) => any;
+//  loading?: boolean | SpinProps;
+//  locale?: Object;
+//  indentSize?: number;
+//  onRowClick?: (record: T, index: number, event: Event) => any;
+//  onRow?: (record: T, index: number) => any;
+//  onHeaderRow?: (columns: ColumnProps<T>[], index: number) => any;
+//  useFixedHeader?: boolean;
+//  bordered?: boolean;
+//  showHeader?: boolean;
+//  footer?: (currentPageData: Object[]) => React.ReactNode;
+//  title?: (currentPageData: Object[]) => React.ReactNode;
+//  scroll?: { x?: boolean | number | string, y?: boolean | number | string };
+//  childrenColumnName?: string;
+//  bodyStyle?: React.CSSProperties;
+//  className?: string;
+//  style?: React.CSSProperties;
+//  children?: React.ReactNode;
+//}
 
-export interface TableStateFilters {
-  [key: string]: string[];
-}
+//export interface TableStateFilters {
+//  [key: string]: string[];
+//}
 
-export interface TableState<T> {
-  pagination: TablePaginationConfig;
-  filters: TableStateFilters;
-  sortColumn: ColumnProps<T> | null;
-  sortOrder: 'ascend' | 'descend' | undefined;
-}
+//export interface TableState<T> {
+//  pagination: TablePaginationConfig;
+//  filters: TableStateFilters;
+//  sortColumn: ColumnProps<T> | null;
+//  sortOrder: 'ascend' | 'descend' | undefined;
+//}
 
 
-export interface SelectionCheckboxAllProps<T> {
-  store: Store;
-  locale: any;
-  disabled: boolean;
-  getCheckboxPropsByItem: (item: any, index: number) => any;
-  getRecordKey: (record: any, index?: number) => string;
-  data: T[];
-  prefixCls: string | undefined;
-  onSelect: (key: string, index: number, selectFunc: any) => void;
-  hideDefaultSelections?: boolean;
-  selections?: SelectionItem[] | boolean;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
-}
+//export interface SelectionCheckboxAllProps<T> {
+//  store: Store;
+//  locale: any;
+//  disabled: boolean;
+//  getCheckboxPropsByItem: (item: any, index: number) => any;
+//  getRecordKey: (record: any, index?: number) => string;
+//  data: T[];
+//  prefixCls: string | undefined;
+//  onSelect: (key: string, index: number, selectFunc: any) => void;
+//  hideDefaultSelections?: boolean;
+//  selections?: SelectionItem[] | boolean;
+//  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+//}
 
-export interface SelectionCheckboxAllState {
-  checked: boolean;
-  indeterminate: boolean;
-}
+//export interface SelectionCheckboxAllState {
+//  checked: boolean;
+//  indeterminate: boolean;
+//}
 
-export interface SelectionBoxProps {
-  store: Store;
-  type?: RowSelectionType;
-  defaultSelection: string[];
-  rowIndex: string;
-  name?: string;
-  disabled?: boolean;
-  onChange: (e: RadioChangeEvent | CheckboxChangeEvent) => void;
-}
+//export interface SelectionBoxProps {
+//  store: Store;
+//  type?: RowSelectionType;
+//  defaultSelection: string[];
+//  rowIndex: string;
+//  name?: string;
+//  disabled?: boolean;
+//  onChange: (e: RadioChangeEvent | CheckboxChangeEvent) => void;
+//}
 
-export interface SelectionBoxState {
-  checked?: boolean;
-}
+//export interface SelectionBoxState {
+//  checked?: boolean;
+//}
 
-export interface SelectionInfo<T> {
-  selectWay: TableSelectWay;
-  record?: T;
-  checked?: boolean;
-  changeRowKeys?: React.Key[];
-  nativeEvent?: Event;
-}
+//export interface SelectionInfo<T> {
+//  selectWay: TableSelectWay;
+//  record?: T;
+//  checked?: boolean;
+//  changeRowKeys?: React.Key[];
+//  nativeEvent?: Event;
+//}
 
-export interface FilterMenuProps<T> {
-  locale: TableLocale;
-  selectedKeys: string[];
-  column: ColumnProps<T>;
-  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
-  prefixCls: string;
-  dropdownPrefixCls: string;
-  getPopupContainer: (triggerNode?: Element) => HTMLElement;
-}
+//export interface FilterMenuProps<T> {
+//  locale: TableLocale;
+//  selectedKeys: string[];
+//  column: ColumnProps<T>;
+//  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
+//  prefixCls: string;
+//  dropdownPrefixCls: string;
+//  getPopupContainer: (triggerNode?: Element) => HTMLElement;
+//}
 
-export interface FilterMenuState {
-  selectedKeys: string[];
-  keyPathOfSelectedItem: { [key: string]: string };
-  visible?: boolean;
-}
+//export interface FilterMenuState {
+//  selectedKeys: string[];
+//  keyPathOfSelectedItem: { [key: string]: string };
+//  visible?: boolean;
+//}
 
-    [<StringEnum>]
-    type TableSize = Small | Default
+    //[<StringEnum>]
+    //type TableSize = Small | Default
 
     type SwitchProps =
         | PrefixCls of string
         interface Fable.Helpers.React.Props.IProp
 
     let inline table (props: IProp list) (children: React.ReactElement list): React.ReactElement =
-       ofImport "Table" "antd" (keyValueList CaseRules.LowerFirst props) children
+        ofImport "Table" "antd" (keyValueList CaseRules.LowerFirst props) children
